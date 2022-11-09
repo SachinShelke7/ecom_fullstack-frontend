@@ -41,6 +41,7 @@ const Item = ({ item, width }) => {
           onClick={() => navigate(`/item/${item.id}`)}
           style={{
             cursor: "pointer",
+            objectFit: "cover",
           }}
         />
         <Box
