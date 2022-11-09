@@ -4,7 +4,7 @@ import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 import { shades } from "../theme";
 import { addToCart } from "../state";
-import { useNavigate, useNavigationType } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
