@@ -55,7 +55,7 @@ const MainCarousel = () => {
       )}
     >
       {Object.values(heroTextureImports).map((texture, index) => (
-        <Box key={`carousel-image-${index}`}>
+        <Box key={`carousel-image-${index}`} sx={{ userSelect: "none" }}>
           <img
             src={texture}
             alt={`carousel-${index}`}

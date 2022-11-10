@@ -71,11 +71,12 @@ const CartMenu = () => {
                         width="123px"
                         height="164px"
                         src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                        style={{ objectFit: "cover" }}
                       />
                     </Box>
                     <Box flex="1 1 60%">
                       <FlexBox mb="5px">
-                        <Typography fontWight="bold">
+                        <Typography fontWeight="bold">
                           {item.attributes.name}
                         </Typography>
                         <IconButton
@@ -114,7 +115,7 @@ const CartMenu = () => {
                         </Box>
                         {/* price */}
                         <Typography fontWeight="bold">
-                          ${item.attributes.price}
+                          ₹{item.attributes.price}
                         </Typography>
                       </FlexBox>
                     </Box>
@@ -126,28 +127,42 @@ const CartMenu = () => {
           </Box>
 
           {/* actions */}
-          <Box margin="20px 0">
-            <FlexBox m="20px 0">
-              <Typography fontWeight="bold">SUBTOTAL</Typography>
-              <Typography fontWeight="bold">${totalPrice}</Typography>
-            </FlexBox>
-            <Button
-              sx={{
-                backgroundColor: shades.primary[400],
-                color: "white",
-                borderRadius: 0,
-                minWidth: "100%",
-                padding: "20px 40px",
-                m: "20px 0",
-              }}
-              onClick={() => {
-                navigate("/checkout");
-                dispatch(setIsCartOpen({}));
-              }}
-            >
-              CHECKOUT
-            </Button>
-          </Box>
+          {cart.length ? (
+            <Box margin="20px 0">
+              <FlexBox m="20px 0">
+                <Typography fontWeight="bold">SUBTOTAL</Typography>
+                <Typography fontWeight="bold">₹{totalPrice}</Typography>
+              </FlexBox>
+              <Button
+                sx={{
+                  backgroundColor: shades.primary[400],
+                  color: "white",
+                  borderRadius: 0,
+                  minWidth: "100%",
+                  padding: "20px 40px",
+                  m: "20px 0",
+                  ":hover": { backgroundColor: shades.primary[500] },
+                }}
+                onClick={() => {
+                  navigate("/checkout");
+                  dispatch(setIsCartOpen({}));
+                }}
+              >
+                CHECKOUT
+              </Button>
+            </Box>
+          ) : (
+            <Box display="flex" justifyContent="center" width="100%">
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="h6">No Item In Cart</Typography>
+                <Button
+                  onClick={() => dispatch(setIsCartOpen({})) | navigate("/")}
+                >
+                  Back To Home
+                </Button>
+              </Box>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

@@ -6,6 +6,8 @@ import CartMenu from "./scenes/global/CartMenu";
 import Navbar from "./scenes/global/Navbar";
 import Home from "./scenes/home/Home";
 import ItemDetails from "./scenes/itemDetails/ItemDetails";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ScrollToTop = () => {
   const pathname = useLocation();
@@ -27,6 +29,7 @@ function App() {
           <Route path="checkout/success" element={<Confirmation />} />
         </Routes>
         <CartMenu />
+        <ToastContainer />
       </BrowserRouter>
     </div>
   );

@@ -21,7 +21,7 @@ const Navbar = () => {
       alignItems="center"
       width="100%"
       height="60px"
-      backgroundColor="rgba(255,255,255,0.95)"
+      backgroundColor="rgba(255,255,255,0.90)"
       color="black"
       position="fixed"
       top="0"
@@ -39,9 +39,10 @@ const Navbar = () => {
           onClick={() => navigate("/")}
           sx={{
             "&:hover": { cursor: "pointer" },
+            fontWeight: "bold",
           }}
         >
-          Ecom
+          FANCY E-STORE
         </Box>
         <Box
           display="flex"
