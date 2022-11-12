@@ -8,6 +8,7 @@ import Home from "./scenes/home/Home";
 import ItemDetails from "./scenes/itemDetails/ItemDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./scenes/global/Footer";
 
 const ScrollToTop = () => {
   const pathname = useLocation();
@@ -30,6 +31,7 @@ function App() {
         </Routes>
         <CartMenu />
         <ToastContainer />
+        <Footer />
       </BrowserRouter>
     </div>
   );

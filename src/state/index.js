@@ -19,6 +19,7 @@ export const cartSlice = createSlice({
         const itemIndex = state.cart.findIndex(
           (i) => i.id === action.payload.item.id
         );
+
         state.cart[itemIndex].count =
           state.cart[itemIndex].count + action.payload.item.count;
         toast.info("Quantity Updated!", {
