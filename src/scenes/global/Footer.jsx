@@ -8,7 +8,12 @@ const Footer = () => {
   } = useTheme();
 
   return (
-    <Box mt="70px" p="40px 0" backgroundColor={neutral.light}>
+    <Box
+      mt="70px"
+      p="40px 0"
+      backgroundColor={neutral.light}
+      sx={{ userSelect: "none" }}
+    >
       <Box
         width="80%"
         margin="auto"
@@ -39,28 +44,50 @@ const Footer = () => {
           <Typography variant="h4" fontWeight="bold" mb="30px">
             About Us
           </Typography>
-          <Typography mb="30px">Careers</Typography>
-          <Typography mb="30px">Our Stores</Typography>
-          <Typography mb="30px">Terms & Condition</Typography>
-          <Typography mb="30px">Privacy & Policy</Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Careers
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Our Stores
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Terms & Condition
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Privacy & Policy
+          </Typography>
         </Box>
         <Box>
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Customer Care
           </Typography>
-          <Typography mb="30px">Help Center</Typography>
-          <Typography mb="30px">Track Your Order</Typography>
-          <Typography mb="30px">Corporate & Bulk Purchasing</Typography>
-          <Typography mb="30px">Returns & Refunds</Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Help Center
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Track Your Order
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Corporate & Bulk Purchasing
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Returns & Refunds
+          </Typography>
         </Box>
 
         <Box width="clamp(20%,25%,30%)">
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Contact Us
           </Typography>
-          <Typography mb="30px">47 xyz,India,123456</Typography>
-          <Typography mb="30px">Email : abc@xyz.com</Typography>
-          <Typography mb="30px">(+91) 1234567890</Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            47 xyz,India,123456
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            Email : abc@xyz.com
+          </Typography>
+          <Typography mb="30px" sx={{ cursor: "pointer" }}>
+            (+91) 1234567890
+          </Typography>
         </Box>
       </Box>
     </Box>

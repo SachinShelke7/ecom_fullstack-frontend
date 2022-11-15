@@ -24,7 +24,7 @@ export const cartSlice = createSlice({
           state.cart[itemIndex].count + action.payload.item.count;
         toast.info("Quantity Updated!", {
           position: "bottom-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
         state.cart = [...state.cart, action.payload.item];
         toast.success("Added to cart!", {
           position: "bottom-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
