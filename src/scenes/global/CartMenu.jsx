@@ -1,4 +1,11 @@
-import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Close, Add, Remove } from "@mui/icons-material";
@@ -79,13 +86,15 @@ const CartMenu = () => {
                         <Typography fontWeight="bold">
                           {item.attributes.name}
                         </Typography>
-                        <IconButton
-                          onClick={() =>
-                            dispatch(removeFromCart({ id: item.id }))
-                          }
-                        >
-                          <Close />
-                        </IconButton>
+                        <Tooltip title="Remove From Cart">
+                          <IconButton
+                            onClick={() =>
+                              dispatch(removeFromCart({ id: item.id }))
+                            }
+                          >
+                            <Close />
+                          </IconButton>
+                        </Tooltip>
                       </FlexBox>
                       <Typography>
                         {item.attributes.shortDescription}

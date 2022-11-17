@@ -6,6 +6,7 @@ const initialState = {
   cart: [],
   items: [],
 };
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
