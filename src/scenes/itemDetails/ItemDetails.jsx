@@ -4,10 +4,12 @@ import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
 import { FavoriteBorderOutlined, Add, Remove } from "@mui/icons-material";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Item from "../../components/Item";
+import { toast } from "react-toastify";
 
 const ItemDetails = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { itemId } = useParams();
   const [value, setValue] = useState("description");
@@ -26,6 +28,9 @@ const ItemDetails = () => {
     );
     const itemJson = await item.json();
     setItem(itemJson.data);
+    if (itemJson.error.status === 404) {
+      setItem("return");
+    }
   }
 
   async function getItems() {
@@ -40,8 +45,21 @@ const ItemDetails = () => {
   useEffect(() => {
     getItem();
     getItems();
+    if (item === "return") {
+      toast.error("Oops Something went wrong!!", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemId]);
+  }, [itemId, item]);
 
   return (
     <Box width="80%" m="80px auto">
