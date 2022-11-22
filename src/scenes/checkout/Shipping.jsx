@@ -46,7 +46,18 @@ const Shipping = ({
         />
       </Box>
       {/* Shipping Form */}
-      {!values.shippingAddress.isSameAddress && <Box>test</Box>}
+      {!values.shippingAddress.isSameAddress && (
+        <Box>
+          <AddressForm
+            type="shippingAddress"
+            values={values.shippingAddress}
+            errors={errors}
+            touched={touched}
+            handleBlur={handleBlur}
+            handleChange={handleChange}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
